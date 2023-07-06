@@ -1,0 +1,76 @@
+#!/bin/bash
+sudo apt -y update && sudo apt -y upgrade
+
+############################   Remove Old Header Files and Kernels.   ############################
+dpkg -l linux-* | awk '/^ii/{print $2}' | egrep [0-9] | sort -t- -k3,4 --version-sort -r | sed -e "1,/$(uname -r | cut -f1,2 -d"-")/d" | grep -v -e `uname -r | cut -f1,2 -d"-"` | xargs sudo apt-get -y purge
+sudo apt -y update && sudo apt -y upgrade
+
+
+############################   Remove Old Header Files and Kernels.   ############################
+sudo apt install -y software-properties-common apt-transport-https wget build-essential gcc wget linux-headers-generic linux-headers-$(uname -r) curl
+
+
+############################   To Install VMWare-WorkStation Player   ############################
+cd /home/venkat/Downloads
+wget https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-16.1.1-17801498.x86_64.bundle     ** Change this URL to latest **
+sudo chmod +x VMware-Workstation-Full-16.1.1-17801498.x86_64.bundle
+sudo sh ./VMware-Workstation-Full-16.1.1-17801498.x86_64.bundle
+sudo apt update && sudo apt upgrade -y 
+
+########################### Install Visual Studio Code  ##########################################################
+#%%%%%%% https://linuxhint.com/install-visual-studio-code-ubuntu22-04/
+wget -O- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/vscode.gpg
+echo deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.microsoft.com/repos/vscode stable main | sudo tee /etc/apt/sources.list.d/vscode.list
+sudo apt -y update && sudo apt -y upgrade
+sudo apt -y install code
+
+########################### Install Ansible ##########################################################
+sudo apt -y update && sudo apt -y upgrade
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+sudo apt-add-repository -y ppa:ansible/ansible
+sudo apt install -y vim ansible 
+ansible --version
+
+########################### Vagrant ##########################################################
+#%%%%%%% Install Vagrant https://developer.hashicorp.com/vagrant/downloads
+wget https://releases.hashicorp.com/vagrant-vmware-utility/1.0.22/vagrant-vmware-utility_1.0.22-1_amd64.deb
+sudo apt install ./vagrant-vmware-utility_1.0.22_x86_64.deb
+vagrant --version
+vagrant plugin install vagrant-disksize
+
+########################### Vagrant VMware Utility ##########################################################
+#%%%%%%% https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility
+
+########################### RDP ##########################################################
+#%%%%%%% https://www.geekdecoder.com/how-to-fix-authentication-is-required-to-create-a-color-profile-managed-device-on-ubuntu-22-04/
+
+########################### Enable SSH ##########################################################
+#%%%%%%% https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-18-04/
+sudo apt update
+sudo apt install openssh-server -y
+sudo systemctl status ssh
+sudo ufw allow ssh
+
+
+
+
+
+
+########################### Jenkins ##########################################################
+#%%%%%%% https://www.jenkins.io/doc/book/installing/linux/#debianubuntu  **Venkat Preferred**
+#%%%%%%% https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-22-04
+# Install Jenkins on U01 machine
+
+########################### SonarQube ##########################################################
+#%%%%%%% https://www.sonarsource.com/products/sonarqube/downloads/
+# Install SonarQube on U02 machine
+
+########################### Nexus ##########################################################
+https://help.sonatype.com/repomanager3/product-information/download
+# Install Nexus on U03 machine
+
+########################### Apache ########################################################## 
+#%%%%%%% https://tomcat.apache.org/download-10.cgi
+# Install TomCat on U04 machine
+
+
