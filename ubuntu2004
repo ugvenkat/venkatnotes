@@ -57,6 +57,10 @@ sudo ufw allow ssh
 
 
 ########################### Jenkins ##########################################################
+# Install OpenJDK17
+sudo apt update
+sudo apt install openjdk-17-jre
+java -version
 #%%%%%%% https://www.jenkins.io/doc/book/installing/linux/#debianubuntu  **Venkat Preferred**
 #%%%%%%% https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-22-04
 # Install Jenkins on U01 machine
