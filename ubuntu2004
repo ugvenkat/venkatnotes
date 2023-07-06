@@ -52,11 +52,7 @@ sudo systemctl status ssh
 sudo ufw allow ssh
 
 
-
-
-
-
-########################### Jenkins ##########################################################
+########################### Install Java 17 ##########################################################
 # https://itsfoss.com/set-java-home-ubuntu/
 # Install OpenJDK17 and setup JAVA_HOME
 sudo apt update
@@ -65,11 +61,29 @@ cp ~/.bashrc ~/.bashrc.bak
 echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> ~/.bashrc
 echo "export PATH=$PATH:$JAVA_HOME/bin" >> ~/.bashrc
 
+########################### Install Maven ##########################################################
+# https://www.digitalocean.com/community/tutorials/install-maven-linux-ubuntu
 
-sudo apt install git
+#https://maven.apache.org/download.cgi
+cd /home/venkat/Downloads
+wget https://dlcdn.apache.org/maven/maven-3/3.9.3/binaries/apache-maven-3.9.3-bin.tar.gz
+tar -xvf apache-maven-3.9.3-bin.tar.gz
+mv apache-maven-3.9.3 /opt/
+
+echo "export M2_HOME=/opt/apache-maven-3.9.3" >> ~/.bashrc
+echo "export MAVEN_HOME=/opt/apache-maven-3.9.3" >> ~/.bashrc
+echo "export PATH=${M2_HOME}/bin:${PATH} >> ~/.bashrc
+
+
+
+
+
+
+########################### Jenkins ##########################################################
 #%%%%%%% https://www.jenkins.io/doc/book/installing/linux/#debianubuntu  **Venkat Preferred**
 #%%%%%%% https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-22-04
 # Install Jenkins on U01 machine
+sudo apt install git
 
 
 
