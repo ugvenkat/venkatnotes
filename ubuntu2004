@@ -72,7 +72,7 @@ mv apache-maven-3.9.3 /opt/
 
 echo "export M2_HOME=/opt/apache-maven-3.9.3" >> ~/.bashrc
 echo "export MAVEN_HOME=/opt/apache-maven-3.9.3" >> ~/.bashrc
-echo "export PATH=${M2_HOME}/bin:${PATH}" >> ~/.bashrc
+echo "export PATH=$M2_HOME/bin:$PATH" >> ~/.bashrc
 
 ########################### Hello world Java WebApplication ##########################################################
 # https://www.tutorialspoint.com/maven/maven_web_application.htm
