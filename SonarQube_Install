@@ -17,7 +17,7 @@ sudo sysctl -w vm.max_map_count=524288
 sudo sysctl -w fs.file-max=131072
 ulimit -n 131072
 ulimit -u 8192
-sudo su reboot now
+reboot
 
 
 sudo adduser --system --no-create-home --group --disabled-login sonarh2s
