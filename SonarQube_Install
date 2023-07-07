@@ -1,0 +1,82 @@
+# https://linux.how2shout.com/how-to-install-sonarqube-on-ubuntu-22-04-lts-server/
+
+sudo apt update && sudo apt upgrade -y
+sudo apt install curl gnupg software-properties-common apt-transport-https lsb-release
+
+########################### Install Java 17 ##########################################################
+# https://itsfoss.com/set-java-home-ubuntu/
+# Install OpenJDK17 and setup JAVA_HOME
+sudo apt update
+sudo apt install -y openjdk-17-jre
+cp ~/.bashrc ~/.bashrc.bak
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export PATH=$PATH:$JAVA_HOME/bin
+
+########################### Increase Virtual Memory##########################################################
+sudo sysctl -w vm.max_map_count=524288
+sudo sysctl -w fs.file-max=131072
+ulimit -n 131072
+ulimit -u 8192
+sudo su reboot now
+
+
+sudo adduser --system --no-create-home --group --disabled-login sonarh2s
+
+curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/apt.postgresql.org.gpg >/dev/null
+echo "deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ jammy-pgdg main" | sudo tee /etc/apt/sources.list.d/postgresql.list
+sudo apt update && sudo apt upgrade -y
+
+sudo apt install postgresql-13
+systemctl status postgresql --no-pager -l
+
+sudo passwd postgres
+su - postgres
+createuser sonaruser
+
+psql
+ALTER USER sonaruser WITH ENCRYPTED password 'yourpassword';
+CREATE DATABASE sonardb OWNER sonaruser;
+\q
+exit
+
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.1.69595.zip
+sudo apt -y install unzip
+sudo unzip sonarqube-*.zip -d /opt
+sudo mv /opt/sonarqube-* /opt/sonarqube
+sudo chown -R sonarh2s:sonarh2s /opt/sonarqube
+
+sudo nano /opt/sonarqube/conf/sonar.properties
+sonar.jdbc.username=sonaruser
+sonar.jdbc.password=yourpassword
+sonar.jdbc.url=jdbc:postgresql://localhost/
+sonardbsonar.web.javaAdditionalOpts=-server
+
+sudo nano /etc/systemd/system/sonar.service
+[Unit]
+Description=SonarQube service
+After=syslog.target network.target
+
+[Service]
+Type=forking
+ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start
+ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
+LimitNOFILE=65536
+LimitNPROC=4096
+User=sonarh2s
+Group=sonarh2s
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo systemctl daemon-reload
+sudo systemctl enable sonar 
+sudo systemctl start sonar 
+sudo systemctl status sonar
+sudo ufw allow 9000/tcp
+
+http://you-somain.com:9000
+
+
+
