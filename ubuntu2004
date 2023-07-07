@@ -56,7 +56,7 @@ sudo ufw allow ssh
 # https://itsfoss.com/set-java-home-ubuntu/
 # Install OpenJDK17 and setup JAVA_HOME
 sudo apt update
-sudo apt install openjdk-17-jre
+sudo apt install -y openjdk-17-jre
 cp ~/.bashrc ~/.bashrc.bak
 
 
