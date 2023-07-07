@@ -82,6 +82,7 @@ export PATH=$PATH:$JAVA_HOME/bin:$M2_HOME/bin
 ########################### Hello world Java WebApplication ##########################################################
 # https://www.tutorialspoint.com/maven/maven_web_application.htm
 mvn archetype:generate -DgroupId=com.venkat.helloworld -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false 
+cd helloworld
 mvn clean package
 # copy helloworld.jar from target directory into webserver directory and restart websever.
 # http://serverIP:8180/helloworld/index.jsp   test the application.
