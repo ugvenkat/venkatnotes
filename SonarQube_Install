@@ -1,4 +1,5 @@
 # https://linux.how2shout.com/how-to-install-sonarqube-on-ubuntu-22-04-lts-server/
+# https://www.vultr.com/docs/how-to-use-sonarqube-on-ubuntu-22-04-lts/
 
 sudo apt update && sudo apt upgrade -y
 sudo apt install curl gnupg software-properties-common apt-transport-https lsb-release
@@ -26,7 +27,7 @@ curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor | sudo t
 echo "deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ jammy-pgdg main" | sudo tee /etc/apt/sources.list.d/postgresql.list
 sudo apt update && sudo apt upgrade -y
 
-sudo apt install postgresql-13
+sudo apt install postgresql-13 -y
 systemctl status postgresql --no-pager -l
 
 sudo passwd postgres
@@ -34,7 +35,7 @@ su - postgres
 createuser sonaruser
 
 psql
-ALTER USER sonaruser WITH ENCRYPTED password 'yourpassword';
+ALTER USER sonaruser WITH ENCRYPTED password 'Password12390-00';
 CREATE DATABASE sonardb OWNER sonaruser;
 \q
 exit
