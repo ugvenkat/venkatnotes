@@ -1,6 +1,8 @@
+# https://www.howtoforge.com/how-to-install-sonarqube-on-ubuntu-22-04/        /* this works. 
+
 # https://linux.how2shout.com/how-to-install-sonarqube-on-ubuntu-22-04-lts-server/
 # https://www.vultr.com/docs/how-to-use-sonarqube-on-ubuntu-22-04-lts/
-# https://www.howtoforge.com/how-to-install-sonarqube-on-ubuntu-22-04/
+
 
 sudo apt update && sudo apt upgrade -y
 sudo apt install curl gnupg software-properties-common apt-transport-https lsb-release
