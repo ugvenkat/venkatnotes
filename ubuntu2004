@@ -102,8 +102,13 @@ sudo apt install git
 # Install SonarQube on U02 machine
 
 ########################### Nexus ##########################################################
+https://www.howtoforge.com/how-to-install-and-configure-nexus-repository-manager-on-ubuntu-20-04/
 https://help.sonatype.com/repomanager3/product-information/download
+Use the first Link to install. Use the second link to get the download link of the lastest nexus and use it in first link.
 # Install Nexus on U03 machine
+
+apt-get update -y
+
 
 ########################### Apache ########################################################## 
 #%%%%%%% https://tomcat.apache.org/download-10.cgi
