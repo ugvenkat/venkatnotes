@@ -17,7 +17,8 @@ sudo chown -R nexus:nexus /opt/nexus /opt/sonatype-work
 
 echo -e '\nrun_as_user="nexus"' | sudo tee -a /opt/nexus/bin/nexus.rc > /dev/null
 
-sudo nano /etc/nexus/bin/nexus.vmoptions
+#sudo nano /etc/nexus/bin/nexus.vmoptions
+sudo nano /opt/nexus/bin/nexus.vmoptions
 -Xms1024m
 -Xmx1024m
 -XX:MaxDirectMemorySize=1024m
