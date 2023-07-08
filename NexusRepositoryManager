@@ -6,7 +6,7 @@ sudo useradd -d /opt/nexus -s /bin/bash nexus
 sudo passwd nexus
 ulimit -n 65536
 sudo touch /etc/security/limits.d/nexus.conf
-sudo echo "nexus - nofile 65536' >> /etc/security/limits.d/nexus.conf
+sudo echo "nexus - nofile 65536" >> /etc/security/limits.d/nexus.conf
 ulimit -a
 cd ~/home/Downloads
 wget https://download.sonatype.com/nexus/3/nexus-3.41.1-01-unix.tar.gztar 
