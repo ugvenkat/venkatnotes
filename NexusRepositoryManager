@@ -9,8 +9,8 @@ sudo touch /etc/security/limits.d/nexus.conf
 echo "nexus - nofile 65536" | sudo tee  -a /etc/security/limits.d/nexus.conf > /dev/null
 ulimit -a
 cd ~/Downloads
-wget https://download.sonatype.com/nexus/3/nexus-3.41.1-01-unix.tar.gztar 
-xzf nexus-3.41.1-01-unix.tar.gz
+wget https://download.sonatype.com/nexus/3/nexus-3.41.1-01-unix.tar.gz
+tar xzf nexus-3.41.1-01-unix.tar.gz
 sudo mv nexus-3.41.1-01 /opt/nexus
 sudo mv sonatype-work /opt/
 sudo chown -R nexus:nexus /opt/nexus /opt/sonatype-work
