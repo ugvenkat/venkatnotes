@@ -80,7 +80,7 @@ sudo systemctl start sonar
 sudo systemctl status sonar
 sudo ufw allow 9000/tcp
 
-http://you-somain.com:9000
+http://ip:9000
 
 
 
