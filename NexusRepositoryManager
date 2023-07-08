@@ -3,10 +3,8 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install openjdk-8-jdk -y
 java -version
 
-
 sudo useradd -M -d /opt/nexus -s /bin/bash -r nexus
 echo "nexus ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/nexus > /dev/null
-
 
 cd /opt
 sudo wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
@@ -14,10 +12,9 @@ sudo tar -zxvf latest-unix.tar.gz
 
 ############### should list 2 files ##############
 ls -d $PWD/*
-  /opt/nexus-3.57.0-01
+  /opt/nexus-3.57.0-01    /* If the version is changed in the future Please replace all places on here to below */
   /opt/sonatype-work
 ##################################################
-
 
 sudo chown -R nexus:nexus /opt/nexus-3.57.0-01
 sudo chown -R nexus:nexus /opt/sonatype-work
@@ -27,20 +24,17 @@ sudo passwd nexus
 
 #Change to Nexus User
 su - nexus
-
 whoami
 
 cd /opt/nexus-3.57.0-01/bin
 ./nexus run
 
-
 # note down the admin password
-cat /opt/sonatype-work/nexus3/admin.password
+cat /opt/sonatype-work/nexus3/admin.password    
 
 http://localhost:8081/
 
 Click the signin on right top corner.
-
 Enter UserId = admin
 password =  The Password you noted down by running the cat command 
 
