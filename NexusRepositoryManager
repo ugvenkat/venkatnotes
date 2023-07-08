@@ -14,7 +14,8 @@ tar xzf nexus-3.41.1-01-unix.tar.gz
 sudo mv nexus-3.41.1-01 /opt/nexus
 sudo mv sonatype-work /opt/
 sudo chown -R nexus:nexus /opt/nexus /opt/sonatype-work
-sudo echo 'run_as_user="nexus"' >> /opt/nexus/bin/nexus.rc
+
+echo "run_as_user="nexus"" | sudo tee -a /opt/nexus/bin/nexus.rc > /dev/null
 
 sudo nano /etc/nexus/bin/nexus.vmoptions
 -Xms1024m
