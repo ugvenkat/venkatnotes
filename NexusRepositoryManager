@@ -2,105 +2,50 @@
 sudo apt update && sudo apt upgrade -y
 sudo apt install openjdk-8-jdk -y
 java -version
-sudo useradd -d /opt/nexus -s /bin/bash nexus
+
+
+sudo useradd -M -d /opt/nexus -s /bin/bash -r nexus
+echo "nexus ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/nexus > /dev/null
+
+
+cd /opt
+sudo wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+sudo tar -zxvf latest-unix.tar.gz
+
+############### should list 2 files ##############
+ls -d $PWD/*
+  /opt/nexus-3.57.0-01
+  /opt/sonatype-work
+##################################################
+
+
+sudo chown -R nexus:nexus /opt/nexus-3.57.0-01
+sudo chown -R nexus:nexus /opt/sonatype-work
+
+#Set Password for nexus
 sudo passwd nexus
-ulimit -n 65536
-sudo touch /etc/security/limits.d/nexus.conf
-echo "nexus - nofile 65536" | sudo tee  -a /etc/security/limits.d/nexus.conf > /dev/null
-ulimit -a
-cd ~/Downloads
-wget https://download.sonatype.com/nexus/3/nexus-3.41.1-01-unix.tar.gz
-tar xzf nexus-3.41.1-01-unix.tar.gz
-sudo mv nexus-3.41.1-01 /opt/nexus
-sudo mv sonatype-work /opt/
-sudo chown -R nexus:nexus /opt/nexus /opt/sonatype-work
 
-echo -e '\nrun_as_user="nexus"' | sudo tee -a /opt/nexus/bin/nexus.rc > /dev/null
+#Change to Nexus User
+su - nexus
 
-#sudo nano /etc/nexus/bin/nexus.vmoptions
-sudo nano /opt/nexus/bin/nexus.vmoptions
--Xms1024m
--Xmx1024m
--XX:MaxDirectMemorySize=1024m
+whoami
 
-sudo nano /opt/sonatype-work/nexus3/etc/nexus.properties
-application-host=127.0.0.1
+cd /opt/nexus-3.57.0-01/bin
+./nexus run
 
 
+# note down the admin password
+cat /opt/sonatype-work/nexus3/admin.password
 
-sudo touch /etc/systemd/system/nexus.service
-echo "[Unit]"
-echo "Description=nexus service"
-echo "After=network.target"
+http://localhost:8081/
 
-echo "[Service]"
-echo "Type=forking"
-echo "LimitNOFILE=65536"
-echo "ExecStart=/opt/nexus/bin/nexus start"
-echo "ExecStop=/opt/nexus/bin/nexus stop"
-echo "User=nexus"
-echo "Restart=on-abort"
+Click the signin on right top corner.
 
+Enter UserId = admin
+password =  The Password you noted down by running the cat command 
 
-echo "[Install]"
-echo "WantedBy=multi-user.target"
+Click Next
+Enter new Password: 
 
-
-
-sudo systemctl daemon-reload
-sudo systemctl start nexus.service
-sudo systemctl enable nexus.service
-sudo systemctl status nexus.service
-
-sudo apt install nginx -y
-sudo systemctl is-enabled nginx
-sudo systemctl status nginx
-
-sudo touch /etc/nginx/sites-available/nexus
-
-echo "upstream nexus3 {"
-echo "  server 127.0.0.1:8081;"
-echo "}"
-
-echo "server {"
-echo "  listen 80;"
-echo "  server_name nexus.hwdomain.io;"
-
-echo "  location / {"
-
-echo "      proxy_pass http://nexus3/;"
-echo "             proxy_http_version 1.1;""
-echo "              proxy_set_header Upgrade $http_upgrade;
-echo "              proxy_set_header Connection "upgrade";"
-echo "              proxy_set_header Host $http_host;"
-
-echo "              proxy_set_header X-Real-IP $remote_addr;"
-echo "              proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;"
-echo "              proxy_set_header X-Forward-Proto http;"
-echo "              proxy_set_header X-Nginx-Proxy true;"
-
-echo "              proxy_redirect off;"
-echo "          }"
-echo "      }"
-
-
-sudo ln -s /etc/nginx/sites-available/nexus /etc/nginx/sites-enabled/
-sudo nginx -t
-sudo systemctl restart nginx
-
-http://nexus.hwdomain.io
-
-use admin as userid and password as below.
-cat /opt/sonatype-work/nexus3/admin.properties
-
-
-https://www.howtoforge.com/images/how_to_install_nexus_repository_manager_on_ubuntu_2204/17-reposuitory-manager.png?ezimgfmt=rs:750x527/rscb10/ng:webp/ngcb9
-https://www.howtoforge.com/images/how_to_install_nexus_repository_manager_on_ubuntu_2204/18-system-status.png?ezimgfmt=rs:750x596/rscb10/ng:webp/ngcb9
-
-
-
-
-
-
-
-
+Configure Anonymous Accss :  Select Enable
+Finish
