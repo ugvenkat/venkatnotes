@@ -1,0 +1,193 @@
+sudo apt update  
+sudo apt upgrade -y
+sudo apt install -y libc6-x32 libc6-i386
+sudo apt install default-jdk
+java --version
+
+Install the latest binary Downloads.  
+https://kafka.apache.org/downloads
+Scala 2.13  - kafka_2.13-3.4.1.tgz (asc, sha512)   ** Download the Latest Scala Version **
+
+wget https://downloads.apache.org/kafka/3.5.0/kafka_2.13-3.5.0.tgz      ** Make sure the latest user is used here **
+tar xzf kafka_2.13-3.5.0.tgz 
+sudo mv kafka_2.13-3.5.0 /home/venkat/kafka
+
+vi ~/.bashrc
+export PATH=/home/venkat/kafka/bin:$PATH
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export PATH=/usr/lib/jvm/java-11-openjdk-amd64/bin:$PATH 
+
+mkdir /home/venkat/kafka/data
+mkdir /home/venkat/kafka/data/zookeeper
+mkdir /home/venkat/kafka/data/kafka-logs
+mkdir /home/venkat/kafka/data/server    ** Dont know if this is needed **
+
+sudo vi /home/venkat/kafka/config/zookeeper.properties
+dataDir=/home/venkat/kafka/data/zookeeper          ** Change DataDir location **
+
+sudo vi /home/venkat/kafka/config/server.properties   
+log.dirs=/home/venkat/kafka/data/kafka-logs        ** Change log.dirs location **  
+
+** Run the Zoo Keeper **
+cd /home/venkat/kafka/bin
+./zookeeper-server-start.sh /home/venkat/kafka/config/zookeeper.properties
+
+** Run the Kafka Server **
+cd /home/venkat/kafka/bin
+./kafka-server-start.sh /home/venkat/kafka/config/server.properties
+
+** Create the Topic **
+cd /home/venkat/kafka/bin
+./kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test-topic 
+
+ ** To List all kafka topic
+ cd /home/venkat/kafka/bin
+./kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+describe all kafka topics
+cd /home/venkat/kafka/bin
+./kafka-topics.sh --bootstrap-server localhost:9092 --describe
+
+describe a particulra kafka topics
+cd /home/venkat/kafka/bin
+./kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic test-topic
+
+change Partition numbers for the topic
+cd /home/venkat/kafka/bin
+./kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic test-topic --partitions 2
+
+#####################################################################################################
+** Producer API to add contents to topic **
+cd /home/venkat/kafka/bin
+./kafka-console-producer.sh --broker-list localhost:9092 --topic test-topic 
+> Welcome to Kafka
+> This is my first topic
+
+** Consumer API - To Read contents from topic **
+cd /home/venkat/kafka/bin
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-topic --from-beginning 
+** What ever producer produces, Consumers who registered will get it.
+
+** Start Producer with Key and Value
+cd /home/venkat/kafka/bin
+./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test-topic --property "key.separator=-" --property "parse.key=true"
+
+Start Consumer With Key and Value
+cd /home/venkat/kafka/bin
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-topic --from-beginning --property "key.separator= - " --property "print.key=true"
+
+** To List Consumer Groups
+cd /home/venkat/kafka/bin
+./kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
+
+
+** Consume Messages using Consumer Groups **
+cd /usr/local/kafka/bin
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-topic --group console-consumer-30507 --property "key.separator= - " --property "print.key=true"
+
+#########################################################################################################################################################
+--Demo to show 2 consumers to one.  (Parallelism in Kafka).
+
+List Consumer groups. use the output of the below to replace "console-consumer-30507" in producer and consumer. 
+./kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
+
+one Producer
+./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test-topic --property "key.separator=-" --property "parse.key=true"
+
+2 Consumer
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-topic --group console-consumer-30507 --property "key.separator= - " --property "print.key=true"
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-topic --group console-consumer-30507 --property "key.separator= - " --property "print.key=true"
+#########################################################################################################################################################
+Commit Log & Retention Policy.
+-----------------------------
+nano /home/venkat/kafka/config/server.properties
+
+# A comma separated list of directories under which to store log files
+log.dirs=/tmp/kafka-logs
+
+# The minimum age of a log file to be eligible for deletion due to age
+log.retention.hours=168
+
+
+
+#########################################################################################################################################################
+Setup Multiple Brokers on Different Ports and Start Those
+
+mkdir /home/venkat/kafka/data/server1
+mkdir /home/venkat/kafka/data/server2
+mkdir /home/venkat/kafka/data/server3
+
+cd /home/venkat/kafka/config
+cp server.properties server1.properties 
+cp server.properties server2.properties 
+cp server.properties server3.properties 
+
+nano server1.properties
+broker.id=1
+listeners=PLAINTEXT://:9093
+log.dirs=/home/venkat/kafka/data/server1
+
+nano server2.properties
+broker.id=2
+listeners=PLAINTEXT://:9094
+log.dirs=/home/venkat/kafka/data/server2
+
+nano server3.properties
+broker.id=3
+listeners=PLAINTEXT://:9095
+log.dirs=/home/venkat/kafka/data/server3
+
+cd /home/venkat/kafka/bin
+./kafka-topics.sh --bootstrap-server localhost:9093,localhost:9094,localhost:9095 --partitions 3 --replication-factor 3 --topic kafka-cluster --create
+
+./kafka-topics.sh --bootstrap-server localhost:9093 --list
+
+./kafka-console-producer.sh --bootstrap-server localhost:9093 --topic kafka-cluster 
+>Hello from broker 9093
+
+./kafka-console-producer.sh --bootstrap-server localhost:9094 --topic kafka-cluster
+>Hello from broker 9094
+
+./kafka-console-producer.sh --bootstrap-server localhost:9095 --topic kafka-cluster
+>Hello from broker 9095
+
+/kafka-console-consumer.sh --bootstrap-server localhost:9093 --topic kafka-cluster --from-beginning
+/kafka-console-consumer.sh --bootstrap-server localhost:9094 --topic kafka-cluster --from-beginning
+/kafka-console-consumer.sh --bootstrap-server localhost:9095 --topic kafka-cluster --from-beginning
+#########################################################################################################################################################
+
+
+
+
+
+
+
+Notes
+###################################################################################
+https://kafka.apache.org/powered-by
+
+###################################################################################
+Kafka & .NET Core
+https://www.c-sharpcorner.com/article/apache-kafka-net-application/
+https://www.codemag.com/Article/2201061/Working-with-Apache-Kafka-in-ASP.NET-6-Core
+
+
+https://raw.githubusercontent.com/confluentinc/cp-all-in-one/6.1.1-post/cp-all-in-one/docker-compose.yml
+docker-compose up -d
+###################################################################################
+Kafka & Java Spring Boot : 
+https://docs.spring.io/spring-kafka/reference/html/#sending-messages
+https://www.udemy.com/course/apache-kafka-for-developers-using-springboot/
+https://github.com/dilipsundarraj1/kafka-for-developers-using-spring-boot-v2
+
+** SetUpKafkaDocker **
+https://github.com/dilipsundarraj1/kafka-for-developers-using-spring-boot-v2/blob/main/SetUpKafkaDocker.md
+https://github.com/dilipsundarraj1/kafka-for-developers-using-spring-boot-v2/blob/main/docker-compose.yml
+
+** Set up a Kafka Cluster with 3 brokers **
+https://github.com/dilipsundarraj1/kafka-for-developers-using-spring-boot-v2/blob/main/SetUpKafkaDocker.md
+https://github.com/dilipsundarraj1/kafka-for-developers-using-spring-boot-v2/blob/main/docker-compose-multi-broker.yml
+
+There is also Library project using Kafka and Spring boot. 
+
+
