@@ -1,7 +1,6 @@
-sudo apt update  
-sudo apt upgrade -y
+sudo apt update -y && sudo apt upgrade -y
 sudo apt install -y libc6-x32 libc6-i386
-sudo apt install default-jdk
+sudo apt install -y default-jdk
 java --version
 
 Install the latest binary Downloads.  
@@ -155,6 +154,60 @@ cd /home/venkat/kafka/bin
 /kafka-console-consumer.sh --bootstrap-server localhost:9094 --topic kafka-cluster --from-beginning
 /kafka-console-consumer.sh --bootstrap-server localhost:9095 --topic kafka-cluster --from-beginning
 #########################################################################################################################################################
+
+
+
+# Kakfa install on Windows
+https://kafka.apache.org/downloads
+wget https://downloads.apache.org/kafka/3.5.0/kafka_2.13-3.5.0.tgz   extract the file and copy the kafka directory to C:
+
+
+https://kafka.apache.org/quickstart
+
+md C:\kafka_2.13-3.5.0\tmp
+md C:\kafka_2.13-3.5.0\tmp\zookeeper-data
+md C:\kafka_2.13-3.5.0\tmp\kafka-logs
+
+//Make the following changes. 
+Change dataDir=C:\\kafka_2.13-3.5.0\\tmp\\zookeeper-data in C:\kafka_2.13-3.5.0\config\zookeeper.properties        
+Change log.dirs=C:\\kafka_2.13-3.5.0\\tmp\\kafka-logs in C:\kafka_2.13-3.5.0\config\server.properties
+
+Start ZooKeeper.
+cd C:\kafka_2.13-3.5.0\bin\windows\
+zookeeper-server-start.bat C:\kafka_2.13-3.5.0\config\zookeeper.properties
+
+Start Kafka Server
+cd C:\kafka_2.13-3.5.0\bin\windows\
+kafka-server-start.bat C:\kafka_2.13-3.5.0\config\server.properties
+
+Stop ZooKeeper.
+cd C:\kafka_2.13-3.5.0\bin\windows\
+zookeeper-server-stop.bat C:\kafka_2.13-3.5.0\config\zookeeper.properties
+
+Stop Kafka Server
+cd C:\kafka_2.13-3.5.0\bin\windows\
+kafka-server-stop.bat C:\kafka_2.13-3.5.0\config\server.properties
+
+
+https://www.geeksforgeeks.org/spring-boot-how-to-publish-string-messages-on-apache-kafka/
+https://www.geeksforgeeks.org/spring-boot-how-to-consume-json-messages-using-apache-kafka/
+
+https://www.geeksforgeeks.org/spring-boot-how-to-publish-json-messages-on-apache-kafka/
+https://www.geeksforgeeks.org/spring-boot-consume-json-object-from-kafka-topics/
+
+https://www.geeksforgeeks.org/spring-boot-consume-message-through-kafka-save-into-elasticsearch-and-plot-into-grafana/
+https://www.geeksforgeeks.org/message-compression-in-apache-kafka-using-spring-boot/
+https://www.geeksforgeeks.org/how-kafka-consumer-and-deserializers-work-in-apache-kafka/
+https://www.geeksforgeeks.org/how-kafka-producers-message-keys-message-format-and-serializers-work-in-apache-kafka/
+
+
+
+
+
+
+
+
+
 
 
 
