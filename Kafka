@@ -159,7 +159,11 @@ cd /home/venkat/kafka/bin
 
 # Kakfa install on Windows
 https://kafka.apache.org/downloads
-wget https://downloads.apache.org/kafka/3.5.0/kafka_2.13-3.5.0.tgz   extract the file and copy the kafka directory to C:
+
+c:\users\venkat\Downloads
+wget https://downloads.apache.org/kafka/3.5.0/kafka_2.13-3.5.0.tgz  --no-check-certificate
+tar -xzf kafka_2.13-3.5.0.tgz
+move c:\users\venkat\Downloads\kafka_2.13-3.5.0 C:
 
 
 https://kafka.apache.org/quickstart
