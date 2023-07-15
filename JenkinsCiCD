@@ -1,3 +1,23 @@
 Jenkins Shared Lib / Maven / SonarQube / Nexus / Docker / EKS / Terraform.
 https://www.youtube.com/watch?v=g-v9AsubOqY
 https://github.com/vikash-kumar01/installation_scripts
+
+install java17, docker, docker-compose, jenkins
+
+#Install SonarQube
+docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
+docker container ls -a
+
+
+Jenkins shared Library
+https://github.com/vikash-kumar01/jenkins_shared_lib.git
+
+Dashboard/Manage Jenkins / System Configuration/ System / Global Pipeline Libraries /
+Name   my-shared-library
+default version  main
+
+project Repository    https://github.com/vikash-kumar01/jenkins_shared_lib.git
+
+apply / save
+
+
