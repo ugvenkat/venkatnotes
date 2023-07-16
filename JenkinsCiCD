@@ -27,9 +27,12 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
 sudo apt-get update -y 
 sudo apt-get install jenkins -y
 
+sudo systemctl status jenkins
+
 sudo snap install docker 
 
 docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
+sudo chmod 777 /var/run/docker.sock
 
 
 
