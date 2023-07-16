@@ -32,7 +32,7 @@ sudo systemctl stop jenkins
 sudo systemctl disable jenkins
 sudo systemctl start jenkins
 
-sudo snap install docker 
+sudo snap install docker, git
 
 docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
 sudo chmod 777 /var/run/docker.sock
