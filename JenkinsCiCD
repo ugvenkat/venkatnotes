@@ -2,7 +2,7 @@ Jenkins Shared Lib / Maven / SonarQube / Nexus / Docker / EKS / Terraform.
 https://www.youtube.com/watch?v=g-v9AsubOqY
 https://github.com/vikash-kumar01/installation_scripts
 
-install java17, docker, docker-compose, jenkins
+install java1.8, docker, docker-compose, jenkins
 
 #Install SonarQube
 docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
