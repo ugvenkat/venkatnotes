@@ -40,6 +40,40 @@ docker container ls -a
 docker container start containerid
 docker container ls -a
 
+mkdir /home/venkat/source
+cd /home/venkat/source
+mvn archetype:generate -DgroupId=com.venkat.helloworld -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false 
+cd helloworld
+
+From your GitHub account, go to 
+Profile Picture (right top corner) 
+Settings → Developer Settings → Personal Access Token →
+Generate New Token (Give your password) → Fillup the form → click Generate token → Copy the generated Token, 
+it will be something like ghp_sFhFsSHhTzMDreGRLjmks4Tzuzgthdvfsrta
+
+https://github.com/ugvenkat/helloworld-java-app.git
+
+
+//add the below contents to Jenkinsfile
+pipeline {
+    agent any
+    stages{
+        stage('Git Checkout'){
+            steps {
+                script{
+                    git branch: 'main', url: 'https://github.com/ugvenkat/helloworld-java-app.git'
+                }
+            }
+        }
+    }
+}
+
+
+git add .
+git commit -m "git checkout stage added"
+git push origin main
+
+
 
 
 
