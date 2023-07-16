@@ -2,6 +2,40 @@ Jenkins Shared Lib / Maven / SonarQube / Nexus / Docker / EKS / Terraform.
 https://www.youtube.com/watch?v=g-v9AsubOqY
 https://github.com/vikash-kumar01/installation_scripts
 
+
+Install java 1.8
+################
+#Add the following line to /etc/apt/sources.list:#
+deb https://debian.opennms.org/ stable main
+
+#Install GPG key of the repository:#
+wget -O - http://debian.opennms.org/OPENNMS-GPG-KEY | sudo apt-key add -
+
+#Update the package index:#
+sudo apt-get update
+
+#Install oracle-java8-installer deb package:#
+sudo apt-get install oracle-java8-installer
+
+sudo apt update -y && sudo apt upgrade -y 
+
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update -y 
+sudo apt-get install jenkins -y
+
+sudo snap install docker 
+
+docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
+
+
+
+jenkins will error here. close the bash window and reopen it. 
+
+
 install java1.8, docker, docker-compose, jenkins
 
 #Install SonarQube
