@@ -28,6 +28,9 @@ sudo apt-get update -y
 sudo apt-get install jenkins -y
 
 sudo systemctl status jenkins
+sudo systemctl stop jenkins
+sudo systemctl disable jenkins
+sudo systemctl start jenkins
 
 sudo snap install docker 
 
