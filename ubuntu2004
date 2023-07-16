@@ -66,12 +66,12 @@ cp ~/.bashrc ~/.bashrc.bak
 cd /home/venkat/Downloads
 wget https://dlcdn.apache.org/maven/maven-3/3.9.3/binaries/apache-maven-3.9.3-bin.tar.gz
 tar -xvf apache-maven-3.9.3-bin.tar.gz
-mv apache-maven-3.9.3 /opt/
+sudo mv apache-maven-3.9.3 /opt/
 
 ########################### Setup Variables ##########################################################
 
 Add the following lines in 
-sudo vi ~/.bashrc
+sudo vim ~/.bashrc
 
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 export M2_HOME=/opt/apache-maven-3.9.3
