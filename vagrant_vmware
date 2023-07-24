@@ -40,3 +40,13 @@ end
 vagrant up
 vagrant halt
 vagrant destroy
+
+
+
+Use a local box in Vagrant.
+Copy the box file to a folder where Vagrant is installed.
+Run the command vagrant box add my-new-box-name file:///c:/path/to/my-new-box-name.box to import the new box.
+vagrant box list          **to list the new box**  The box-file can be deleted.
+Now you can use the box in new Vagrantfiles.
+
+
