@@ -1,0 +1,42 @@
+
+#https://developer.hashicorp.com/vagrant/docs/v2.3.6/providers/vmware/vagrant-vmware-utility
+#https://linuxhint.com/vagrant-vmware-workstation-pro-16/
+
+sudo apt update && sudo apt upgrade -y 
+sudo apt -y install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+sudo apt update 
+sudo apt install vagrant -y
+
+#download and install vagrant-vmware-utility
+#https://developer.hashicorp.com/vagrant/downloads/vmware
+cd ~/Downloads
+wget https://releases.hashicorp.com/vagrant-vmware-utility/1.0.22/vagrant-vmware-utility_1.0.22-1_amd64.deb
+sudo apt install ./vagrant-vmware-utility_1.0.22-1_amd64.deb
+
+vagrant plugin install vagrant-hostmanager
+vagrant plugin install vagrant-vmware-desktop
+vagrant plugin list
+
+#https://app.vagrantup.com/boxes/search?provider=vmware
+
+vi Vagrantfile 
+Vagrant.configure("2") do |config|   
+    config.vm.define "vapp01" do |vapp01|
+      vapp01.vm.box = "bento/ubuntu-22.04"
+      vapp01.vm.hostname = "vapp01"
+      vapp01.vm.network "private_network", ip: "192.168.31.12"
+		vapp01.vm.provider "vmware_desktop" do |v|
+			v.gui = true
+			v.memory = "1024"
+			v.cpus = 1
+			v.linked_clone = false
+		end
+    end
+end
+
+
+vagrant up
+vagrant halt
+vagrant destroy
