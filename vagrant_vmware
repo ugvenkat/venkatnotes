@@ -37,10 +37,12 @@ Vagrant.configure("2") do |config|
 end
 
 
+vagrant suspend
 vagrant up
 vagrant halt
 vagrant destroy
 
+vagrant up --provider=vmware_desktop
 
 
 Use a local box in Vagrant.
@@ -49,4 +51,18 @@ Run the command vagrant box add my-new-box-name file:///c:/path/to/my-new-box-na
 vagrant box list          **to list the new box**  The box-file can be deleted.
 Now you can use the box in new Vagrantfiles.
 
+
+https://app.vagrantup.com/boxes/search?provider=vmware
+generic/ubuntu2204
+geerlingguy/centos7
+bento/ubuntu-22.04
+generic/centos9s
+fasmat/ubuntu2204-desktop
+
+
+#remove all vagrant box
+vagrant box list | cut -f 1 -d ' ' | xargs -L 1 vagrant box remove -f --all
+
+#destroy by name
+vagrant destroy db01
 
