@@ -83,3 +83,4 @@ $ vagrant box remove        # remove box from local cache
 $ vagrant box repackage     # package a new box to local cache
 $ vagrant box update        # update the box to the latest version
 
+vagrant ssh web01
