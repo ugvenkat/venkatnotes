@@ -73,3 +73,13 @@ $ vagrant rdp           # connects to machine via RDP
 $ vagrant provision     # provisions an existing machine
 $ vagrant destroy       # remove VM - Danger Will Robertson!
 $ vagrant validate      # validates the Vagrantfile
+
+vagrant box                 # manages boxes: installation, removal, etc.
+$ vagrant box add           # add box to the local cache
+$ vagrant box list          # list boxes in local cache
+$ vagrant box outdated      # check if boxes in use are up to date
+$ vagrant box prune         # removes old versions of cached boxes
+$ vagrant box remove        # remove box from local cache
+$ vagrant box repackage     # package a new box to local cache
+$ vagrant box update        # update the box to the latest version
+
