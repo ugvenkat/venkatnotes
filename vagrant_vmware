@@ -54,7 +54,8 @@ Now you can use the box in new Vagrantfiles.
 
 https://app.vagrantup.com/boxes/search?provider=vmware
 generic/ubuntu2204
-geerlingguy/centos7
+generic/centos7
+geerlingguy/centos7  only virtualbox.
 bento/ubuntu-22.04
 generic/centos9s
 fasmat/ubuntu2204-desktop
@@ -66,3 +67,9 @@ vagrant box list | cut -f 1 -d ' ' | xargs -L 1 vagrant box remove -f --all
 #destroy by name
 vagrant destroy db01
 
+$ vagrant status        # outputs status of the vagrant machine(s)
+$ vagrant ssh           # connect to the machine using ssh
+$ vagrant rdp           # connects to machine via RDP
+$ vagrant provision     # provisions an existing machine
+$ vagrant destroy       # remove VM - Danger Will Robertson!
+$ vagrant validate      # validates the Vagrantfile
