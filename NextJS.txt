@@ -9,6 +9,9 @@ https://www.youtube.com/watch?v=gXlcwtS40LA&pp=ygUGbmV4dGpz  1st Part:  Restaura
 https://www.youtube.com/watch?v=aYzT06aQkGI                  2nd Part:  3 hours. 
 
 https://www.youtube.com/watch?v=VE8BkImUciY                  3hrs Next.js Full Tutorial for Beginners | Next.js 13 Full Stack App Using App Router
+https://www.youtube.com/watch?v=ETV17M4SauU&pp=ygUGbmV4dGpz   Next.js & Appwrite – Full Stack Course for Beginners     6 hrs.
+https://www.youtube.com/watch?v=e1EIwuO-Dlo&pp=ygUGbmV4dGpz   NextJS Full Beginner Course [2023] [TypeScript]    2.5hrs
+https://www.youtube.com/watch?v=fqfer6xMp2A&pp=ygUGbmV4dGpz   The Most Efficient Next.JS 13.4 Beginner Tutorial (TypeScript)    3 hrs
 
 
 https://www.youtube.com/watch?v=mqUN4N2q4qY&pp=ygUGbmV4dGpz   Full Stack Netflix Clone in React, Tailwind CSS, Next.JS, Prisma, MongoDB, NextAuth & Vercel (2023)
@@ -17,15 +20,17 @@ https://www.youtube.com/watch?v=vviFia-Stqk&pp=ygUGbmV4dGpz  Building Amazon Clo
 
 https://www.youtube.com/watch?v=3kYkEVIZNZY&t=6964s     #Build Nextjs ECommerce Website Like Amazon For Beginners [2022]  (4 Hours).
 
+
+
 https://www.youtube.com/watch?v=wm5gMKuwSYk&pp=ygUGbmV4dGpz   Next.js 13 Full Course 2023 | Build and Deploy a Full Stack App Using the Official React Framework   3 hours
 https://www.youtube.com/watch?v=KjY94sAKLlw&pp=ygUGbmV4dGpz   Next.js React Framework Course – Build and Deploy a Full Stack App From scratch    5 hrs
-https://www.youtube.com/watch?v=e1EIwuO-Dlo&pp=ygUGbmV4dGpz   NextJS Full Beginner Course [2023] [TypeScript]    2.5hrs
 
-https://www.youtube.com/watch?v=ETV17M4SauU&pp=ygUGbmV4dGpz   Next.js & Appwrite – Full Stack Course for Beginners     6 hrs.
+
+
 https://www.youtube.com/watch?v=NlXfg5Pxxh8&pp=ygUGbmV4dGpz   Build and Deploy a Full Stack Realtime Chat Messaging App with NextJS 13    8.5 hrs
 https://www.youtube.com/watch?v=4lUkSgvmTYM&pp=ygUGbmV4dGpz   Master NextJS 13: Build and Deploy a Modern Full-Stack App in Just 5 Hours!
 https://www.youtube.com/watch?v=5miHyP6lExg&pp=ygUGbmV4dGpz   Full Stack E-Commerce + Dashboard & CMS: Next.js 13 App Router, React, Tailwind, Prisma, MySQL, 2023     (10 hrs)/
-https://www.youtube.com/watch?v=fqfer6xMp2A&pp=ygUGbmV4dGpz   The Most Efficient Next.JS 13.4 Beginner Tutorial (TypeScript)    3 hrs
+
 https://www.youtube.com/watch?v=mSUKMfmLAt0&pp=ygUGbmV4dGpz   Build and Deploy a Fullstack Reddit Clone: Next.js 13, React, Tailwind, Auth, Prisma, MySQL   (10 hours).
 https://www.youtube.com/watch?v=wNWyMsrpbz0&pp=ygUGbmV4dGpz   Step-by-Step Guide: Create a Next.js 13 CRUD App with MongoDB from Scratch    1 hr 
 https://www.youtube.com/watch?v=YkOSUVzOAA4&pp=ygUGbmV4dGpz   T3 Stack Tutorial - FROM 0 TO PROD FOR $0 (Next.js, tRPC, TypeScript, Tailwind, Prisma & More)   3 hrs
@@ -33,7 +38,6 @@ https://www.youtube.com/watch?v=dTFXufTgfOE&pp=ygUGbmV4dGpz   Build a Fullstack 
 https://www.youtube.com/watch?v=PGPGcKBpAk8&pp=ygUGbmV4dGpz   Real-Time Messenger Clone: Next.js 13, React, Tailwind, Prisma, MongoDB, NextAuth, Pusher (2023)   9 hrs
 https://www.youtube.com/watch?v=2aeMRB8LL4o&pp=ygUGbmV4dGpz   Full Stack Spotify Clone: Next 13.4, React, Stripe, Supabase, PostgreSQL, Tailwind (2023)          7 Hrs
 https://www.youtube.com/watch?v=FRmCxj9K7II&pp=ygUGbmV4dGpz   Full-Stack Next.js, TypeScript, and AWS Course – Code a Quote Generator  (nextjs, TS, AWS)         6 hrs.
-https://www.youtube.com/watch?v=6l8RWV8D-Yo       0-Hour React Tutorial 2023 - Zero to Advanced | Learn React JS in Hindi
 
 
 https://www.youtube.com/watch?v=c_-b_isI4vg       Full Stack Airbnb Clone with Next.js 13 App Router: React, Tailwind, Prisma, MongoDB, NextAuth 2023
@@ -41,17 +45,25 @@ https://www.youtube.com/watch?v=c_-b_isI4vg       Full Stack Airbnb Clone with N
 https://www.youtube.com/watch?v=eaQc7vbV4po       Complete Nextjs fullstack Authentication course   4 hrs
 https://www.youtube.com/watch?v=pUNSHPyVryU       Build and Deploy a Modern Next.js 13 Application | React, Next JS 13, TypeScript, Tailwind CSS      3.5 Hrs
 https://www.youtube.com/watch?v=vIyU4nInlt0       Build & Deploy: Full Stack AI Quiz Platform with NextJS 13, TailwindCSS, OpenAI, Next Auth          5 Hrs
-https://www.youtube.com/watch?v=fGFmFYhV7cc       E-Commerce experience with Next.js 13.4 App Directory - Server Components - Intercepting Routes
+https://www.youtube.com/watch?v=fGFmFYhV7cc       E-Commerce experience with Next.js 13.4 App Directory - Server Components - Intercepting Routes     3 Hrs
 https://www.youtube.com/watch?v=OHEMPreO09Q       Next js 13 project - IMBb Clone - next js tailwind css project - nextjs project     6 Hrs.
 https://www.youtube.com/watch?v=h9zlVmoUV5I       Next js 13 project - Google clone (next.js 13, tailwind css 3, google search api, app router)       8 Hrs
 https://www.youtube.com/watch?v=PnvDPSg5bQM       next js project - Twitter clone    11 Hrs
 
 https://www.youtube.com/watch?v=E8gaRFMXS9Y       Full Stack Application with Spring Boot, Next.js, Tailwind CSS & Next-Auth.js 2 Hrs
 https://www.youtube.com/watch?v=utGbrubEY2E       Full Stack Udemy Clone with Next.js 13 App router, Reactjs, Tailwind, TypeScript, MongoDB and Prisma    4 hrs
- 
+https://www.youtube.com/watch?v=wjjcYfccDFI       Build a Fullstack E-Commerce App using Next.js 13, MongoDB, Firebase, Strapi, Tailwind CSS [2023]    12 Hrs
+https://www.youtube.com/watch?v=fkrDAaAMcpY&pp=ygUMTmV4dGpzIGNsb25l      Build and Deploy a Stunning Portfolio Website with Next.js, Tailwind CSS, Framer Motion & Vercel.   2 hrs
+https://www.youtube.com/watch?v=LtPYuFhYf1w&pp=ygUMTmV4dGpzIGNsb25l      Full Stack eBay Clone with Next.js 13, React, SupaBase, Tailwind CSS, Prisma, Stripe, E-commerce    3 Hrs
+https://www.youtube.com/watch?v=vviFia-Stqk&pp=ygUMTmV4dGpzIGNsb25l      Building Amazon Clone with NEXT.JS 13 (ReactJS, ReduxToolkit, Stripe Checkout, NextAuth - [2023]    3.5 Hrs
+https://www.youtube.com/watch?v=dFxJzFBfNJU&pp=ygUMTmV4dGpzIGNsb25l      Let's Build Amazon Clone Using Next Js 13, Tailwind CSS, Firebase and Stripe Checkout    6 hrs
+
+
+
 Hindi
 https://www.youtube.com/watch?v=RtgG9kZpyg4      Lets Build a Stock Management System in using MongoDB and Next.js   2 hrs
 https://youtu.be/DZKOunP-WLQ?list=PLu0W_9lII9agtWvR_TZdb_r0dNI8-lDwG     ** Hindi **
+https://www.youtube.com/watch?v=6l8RWV8D-Yo       0-Hour React Tutorial 2023 - Zero to Advanced | Learn React JS in Hindi
 
 
 Paid Resource
