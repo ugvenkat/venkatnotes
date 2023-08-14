@@ -3,6 +3,12 @@ Resource
 https://www.youtube.com/watch?v=843nec-IvW0
 https://www.youtube.com/watch?v=lCxcTsOHrjo&list=PL0Zuz27SZ-6M8znNpim8dRiICRrP5HPft&index=6
 
+
+NextJS Tutorial
+###############
+https://www.youtube.com/watch?v=VE8BkImUciY  Next.js Full Tutorial for Beginners | Next.js 13 Full Stack App Using App Router   3hrs 
+
+
 NextJS Projects
 ###############
 https://www.youtube.com/watch?v=gXlcwtS40LA  1st Part:  Restaurant Food Delivery App Design - React Next.js & Tailwind | Responsive Food Ordering Website   (2 Hours).
