@@ -38,7 +38,7 @@ su - postgres
 createuser sonaruser
 
 psql
-ALTER USER sonaruser WITH ENCRYPTED password 'Password12390-00';
+ALTER USER sonaruser WITH ENCRYPTED password 'Password';
 CREATE DATABASE sonardb OWNER sonaruser;
 \q
 exit
@@ -52,8 +52,8 @@ sudo chown -R sonarh2s:sonarh2s /opt/sonarqube
 sudo nano /opt/sonarqube/conf/sonar.properties
 sonar.jdbc.username=sonaruser
 sonar.jdbc.password=yourpassword
-sonar.jdbc.url=jdbc:postgresql://localhost/
-sonardbsonar.web.javaAdditionalOpts=-server
+sonar.jdbc.url=jdbc:postgresql://localhost/sonardb
+sonar.web.javaAdditionalOpts=-server
 
 sudo nano /etc/systemd/system/sonar.service
 [Unit]
