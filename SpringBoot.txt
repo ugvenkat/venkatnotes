@@ -1,4 +1,4 @@
-
+####################################################################################################################################################################################
 @Component
 
 In Spring Boot, @Component is an annotation used to indicate that a class is a Spring component. Spring components are Java classes that are managed and configured by the Spring IoC (Inversion of Control) container. This annotation is part of the Spring framework's component scanning mechanism, which automatically detects and registers Spring components during the application startup.
@@ -35,6 +35,9 @@ public class MyService {
 }
 Here, MyService is annotated with @Service, which is another specialization of @Component. It uses constructor injection to get an instance of MyComponent and calls its doSomething method.
 In summary, @Component is a fundamental annotation in Spring Boot for enabling component scanning and making classes Spring-managed beans.
+####################################################################################################################################################################################
+
+
 
 
 
